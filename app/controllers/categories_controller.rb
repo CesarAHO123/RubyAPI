@@ -8,7 +8,10 @@ class CategoriesController < ApplicationController
         render json:category
     end
     def create
-        category=Category.new(category_params)
+        category=Category.new()
+        category.name=category_params["name"]
+        category.description=category_params["description"]
+        category.product_ids=category_params["products"]
         if category.save
             render json:category
         else
@@ -18,7 +21,11 @@ class CategoriesController < ApplicationController
     def update
         category=Category.find(params[:id])
         if category
-            category.update(category_params) 
+            category.name=category_params["name"]
+            category.description=category_params["description"]
+            category.product_ids=[]
+            category.product_ids=category_params["products"]
+            category.save 
             render json:category, status:200
         else
             render json:{error: 'Unable to update category'},status:400
@@ -26,7 +33,7 @@ class CategoriesController < ApplicationController
     end
     def destroy
         category=Category.find(params[:id])
-        if category
+        if category.product_ids==[]
             category.destroy
             render json:{Status: 'Category has been deleted'},status:200
         else
@@ -35,6 +42,6 @@ class CategoriesController < ApplicationController
     end
 
     def category_params
-        params.permit(:name,:description, :products_id)
+        params.permit(:id,:name,:description,category:[:name,:description], products:[])
     end
 end

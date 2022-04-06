@@ -8,8 +8,10 @@ class ProductsController < ApplicationController
         render json:product
     end
     def create
-        product=Product.new(product_params)
-        #product.categories << @category
+        product=Product.new()
+        product.name=product_params["name"]
+        product.description=product_params["description"]
+        product.category_ids=product_params["categories"]
         if product.save
             
             render json:product
@@ -20,7 +22,12 @@ class ProductsController < ApplicationController
     def update
         product=Product.find(params[:id])
         if product
-            product.update(product_params)
+            product.name=product_params["name"]
+            product.description=product_params["description"]
+            product.category_ids=[]
+            product.category_ids=product_params["categories"]
+        
+            product.save
             render json:product, status:200
         else
             render json:{error: 'Unable to update Product'},status:400
@@ -37,6 +44,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-        params.permit(:name,:description,:category_id)
+        params.permit(:name,:description,:categories=>[])
     end
 end
