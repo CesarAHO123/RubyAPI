@@ -8,8 +8,9 @@
 first_cat=Category.create(
     {
         name: "Electronicos",
-        description: "Articulos electronicos"
-    }
+        description: "Articulos electronicos",
+    }  
+    
 )
 second_cat=Category.create(
     {
@@ -17,15 +18,11 @@ second_cat=Category.create(
         description: "Computadoras"
     }
 )
-Product.create([
-    {
-        name:"Television Sony",
-        description: "Television de 30 pulgadas marca Sony",
-        category: first_cat
-    },
-    {
-        name:"Monitor DELL",
-        description:"Monitor de 22 pulgadas con HD",
-        category: first_cat
-    }
-])
+#test=Product.new(
+#    {
+#        name:"Television Sony",
+#        description: "Television de 30 pulgadas marca Sony",
+#        category_id: first_cat.id
+#    }
+#)
+#test.save
