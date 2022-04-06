@@ -11,6 +11,12 @@ first_cat=Category.create(
         description: "Articulos electronicos"
     }
 )
+second_cat=Category.create(
+    {
+        name: "Computadoras",
+        description: "Computadoras"
+    }
+)
 Product.create([
     {
         name:"Television Sony",

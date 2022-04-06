@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
     def update
         category=Category.find(params[:id])
         if category
-            category.update(category_params)
+            category.update(category_params) 
             render json:category, status:200
         else
             render json:{error: 'Unable to update category'},status:400

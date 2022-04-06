@@ -9,7 +9,9 @@ class ProductsController < ApplicationController
     end
     def create
         product=Product.new(product_params)
+        #product.categories << @category
         if product.save
+            
             render json:product
         else
             render json:{error: 'Unable to add product'},status:400

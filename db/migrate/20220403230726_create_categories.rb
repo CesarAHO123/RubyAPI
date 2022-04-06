@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration[7.0]
     create_table :categories do |t|
       t.string :name
       t.string :description
-
+      t.belongs_to :product
     end
   end
 end
