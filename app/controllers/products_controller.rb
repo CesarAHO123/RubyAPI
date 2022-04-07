@@ -8,12 +8,12 @@ class ProductsController < ApplicationController
         render json:product
     end
     def create
+       
         product=Product.new()
         product.name=product_params["name"]
         product.description=product_params["description"]
         product.category_ids=product_params["categories"]
         if product.save
-            
             render json:product
         else
             render json:{error: 'Unable to add product'},status:400
@@ -27,10 +27,13 @@ class ProductsController < ApplicationController
             product.category_ids=[]
             product.category_ids=product_params["categories"]
         
-            product.save
-            render json:product, status:200
+            if product.save
+                render json:product, status:200
+            else
+                render json:{error: 'Unable to update Product'},status:400
+            end
         else
-            render json:{error: 'Unable to update Product'},status:400
+            render json:{error: 'Unable to find Product'},status:400
         end
     end
     def destroy
@@ -44,6 +47,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-        params.permit(:name,:description,:categories=>[])
+        params.permit(:id,:name,:description,:categories=>[],product:[:name,:description])
     end
 end

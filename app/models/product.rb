@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
     has_and_belongs_to_many :categories
-    validates :name,:description, presence:true
+    validates :name,:description,:categories, presence:true
 end

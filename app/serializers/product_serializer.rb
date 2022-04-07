@@ -1,7 +1,5 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :categories
-  def categories
-    object.categories.map(&:name)
-  end
+  attributes :id, :name, :description
+  has_many :categories
 
 end
