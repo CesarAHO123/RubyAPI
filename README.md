@@ -35,8 +35,8 @@
     "description": "Computadora Dell",<br>
     "categories": [1,3]<br>
 }<br>
-   <h2>La API cumple los siguientes puntos </h2><br>
-   <h3>REQUERIMIENTOS FUNCIONALES</h3><br>
+   <h2>La API cumple los siguientes puntos </h2>
+   <h3>REQUERIMIENTOS FUNCIONALES</h3>
 El usuario puede crear categorías nuevas<br>
     Para crear una categoría nueva este tiene que tener nombre requerido, la descripción es opcional<br>
 El usuario puede editar una categoría<br>
