@@ -3,11 +3,11 @@
 <h2>La api cuenta con los siguientes Endpoints</h2>
 <h3>categories/</h3>
 (Get)(Post)
-<h1>categories/<int:id></h1>
+<h3>categories/(int:id)</h3>
  (Get)(Put)(Delete)
  <h3>products/</h3>
  (Get)(Post)
- <h3>products/<int:id></h3>
+ <h3>products/(int:id)</h3>
  (Get)(Put)(Delete)
  <h2> Ejemplos JSON:</h2>
   Categorias:
